@@ -7,6 +7,14 @@ least in node)
 A [CoffeeJade](https://github.com/fusesource/coffeejade) loader plugin for
 [RequireJS](http://requirejs.org/).
 
+## Usage
+
+Reference CoffeeJade files via the coffeejade! plugin name:
+
+    require(['coffeejade!userview'], function (userView) {
+      $('.user').html(userView(locals));
+    });
+
 ## Credit
 
 This source contains portions from the following projects of which is
