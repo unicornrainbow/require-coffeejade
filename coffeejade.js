@@ -1,4 +1,4 @@
-//>>excludeStart('excludeJade', pragmas.excludeJade)
+//>>excludeStart('excludeCoffeeJade', pragmas.excludeCoffeeJade)
 (function() {
 var getXhr, Jade,
     progIds = ['Msxml2.XMLHTTP', 'Microsoft.XMLHTTP', 'Msxml2.XMLHTTP.4.0'],
@@ -3419,12 +3419,12 @@ if (typeof window !== "undefined" && window.navigator && window.document) {
         callback(fs.readFileSync(path, 'utf8'));
     };
 }
-//>>excludeEnd('excludeJade')
+//>>excludeEnd('excludeCoffeeJade')
 
 
-//>>excludeStart('excludeJade', pragmas.excludeJade)
+//>>excludeStart('excludeCoffeeJade', pragmas.excludeCoffeeJade)
 if(false) {
-//>>excludeEnd('excludeJade')
+//>>excludeEnd('excludeCoffeeJade')
 
 
 var jade = (function(exports){
@@ -3551,12 +3551,12 @@ exports.rethrow = function rethrow(err, str, filename, lineno){
 
 
 
-//>>excludeStart('excludeJade', pragmas.excludeJade)
+//>>excludeStart('excludeCoffeeJade', pragmas.excludeCoffeeJade)
 }
-//>>excludeEnd('excludeJade')
+//>>excludeEnd('excludeCoffeeJade')
 
 define({
-    //>>excludeStart('excludeJade', pragmas.excludeJade)
+    //>>excludeStart('excludeCoffeeJade', pragmas.excludeCoffeeJade)
     get: function() {
       return Jade;
     },
@@ -3566,10 +3566,10 @@ define({
             write("define('"+pluginName+"!"+name+"', function(){ return " + text + "});\n");
         }
     },
-    //>>excludeEnd('excludeJade')
+    //>>excludeEnd('excludeCoffeeJade')
     version: '0.0.1',
     load: function (name, parentRequire, load, config) {
-      //>>excludeStart('excludeJade', pragmas.excludeJade)
+      //>>excludeStart('excludeCoffeeJade', pragmas.excludeCoffeeJade)
       fetchText(parentRequire.toUrl(name+'.jade'), function(text) {
         var f = Jade.compile(text);
 
@@ -3579,10 +3579,10 @@ define({
 
         load(f);
       });
-      //>>excludeEnd('excludeJade')
+      //>>excludeEnd('excludeCoffeeJade')
 
     }
 });
-//>>excludeStart('excludeJade', pragmas.excludeJade)
+//>>excludeStart('excludeCoffeeJade', pragmas.excludeCoffeeJade)
 })();
-//>>excludeEnd('excludeJade')
+//>>excludeEnd('excludeCoffeeJade')
