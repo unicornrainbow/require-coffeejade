@@ -6,3 +6,13 @@ least in node)
 
 A [CoffeeJade](https://github.com/fusesource/coffeejade) loader plugin for
 [RequireJS](http://requirejs.org/).
+
+## Credit
+
+This source contains portions from the following projects of which is
+governed by their licenses.
+
+- [Coffeescript](https://github.com/jashkenas/coffee-script)
+- [Jade](https://github.com/visionmedia/jade)
+- [Coffeejade](https://github.com/fusesource/coffeejade)
+- [require-jade](https://github.com/rocketlabsdev/require-jade)
