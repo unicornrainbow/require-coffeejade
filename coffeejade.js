@@ -2774,10 +2774,6 @@ if (typeof window !== "undefined" && window.navigator && window.document) {
 } else if (typeof process !== "undefined" &&
            process.versions &&
            !!process.versions.node) {
-
-
-
-
     //Using special require.nodeRequire, something added by r.js.
     fs = require.nodeRequire('fs');
     fetchText = function (path, callback) {
@@ -2818,7 +2814,7 @@ if (!Object.keys) {
     var arr = [];
     for (var key in obj) {
       if (obj.hasOwnProperty(key)) {
-        arr.push(obj);
+        arr.push(key);
       }
     }
     return arr;
@@ -2869,6 +2865,8 @@ exports.attrs = function attrs(obj){
  */
 
 exports.escape = function escape(html){
+  if( html==null )
+    return "";
   return String(html)
     .replace(/&(?!\w+;)/g, '&amp;')
     .replace(/</g, '&lt;')
@@ -2876,19 +2874,40 @@ exports.escape = function escape(html){
     .replace(/"/g, '&quot;');
 };
 
+exports.string = function string(html){
+  if( html==null )
+    return "";
+  return String(html);
+};
+
+exports.templates = {}
+
+exports.init = function init(){
+  return {
+    string: exports.string,
+    escape: exports.escape,
+    attrs: exports.attrs,
+    rethrow: exports.rethrow,
+    buf: []
+  }
+}
+
 /**
  * Re-throw the given `err` in context to the
- * `str` of jade, `filename`, and `lineno`.
+ * the jade in `filename` at the given `lineno`.
  *
  * @param {Error} err
- * @param {String} str
  * @param {String} filename
  * @param {String} lineno
  * @api private
  */
 
-exports.rethrow = function rethrow(err, str, filename, lineno){
+exports.rethrow = function rethrow(err, filename, lineno) {
+  if( !filename )
+    throw err;
+
   var context = 3
+    , str = require('fs').readFileSync(filename, 'utf8')
     , lines = str.split('\n')
     , start = Math.max(lineno - context, 0)
     , end = Math.min(lines.length, lineno + context);
@@ -2912,8 +2931,6 @@ exports.rethrow = function rethrow(err, str, filename, lineno){
   return exports;
 
 })({});
-
-
 
 
 //>>excludeStart('excludeCoffeeJade', pragmas.excludeCoffeeJade)
