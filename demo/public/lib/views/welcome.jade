@@ -1,0 +1,10 @@
+h1 Jade + Coffee Templates for RequireJS
+
+p
+  - if name
+    | Welcome to the site #{name}.
+  - else
+    | What's your name?
+    form
+      input(type="text" name="name")
+      input(type="submit")
